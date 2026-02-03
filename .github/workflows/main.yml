@@ -11,6 +11,10 @@ on:
       - staging
       - main
 
+concurrency:
+  group: deploy-${{github.ref}}
+  cancel-in-progress: false
+
 jobs:
   deploy_data_environment:
     # Only run when PR is merged or on direct push to environment branches
